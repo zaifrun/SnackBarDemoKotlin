@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SnackBarDemoKotlin</string>
+    <string name="yourname">Enter your name</string>
+    <string name="last_thing_entered">Last thing entered:</string>
+    <string name="save">Save</string>
+
+</resources>
