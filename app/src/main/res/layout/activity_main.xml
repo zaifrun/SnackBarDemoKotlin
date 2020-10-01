@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/layout"
-    tools:context="org.pondar.snackbardemo.MainActivity">
+    tools:context="org.pondar.snackbardemokotlin.MainActivity">
 
 
     <TextView
@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
+        android:inputType="text"
         android:id="@+id/editText"
         />
 
