@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val parent = layout
         //setting up the click listener.
-        saveButton.setOnClickListener { _ ->
+        saveButton.setOnClickListener {
             backup = currentName //creating a backup
 
             //the following two lines hide the keyboard after clicking the button
