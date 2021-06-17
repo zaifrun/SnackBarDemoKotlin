@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import android.view.inputmethod.InputMethodManager
-import kotlinx.android.synthetic.main.activity_main.*
+import org.pondar.snackbardemokotlin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,13 +13,17 @@ class MainActivity : AppCompatActivity() {
 
     //This is the backup where we save the name in case the user hits the undo button
     private var backup  = ""
+    lateinit var binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val parent = layout
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        val parent = binding.layout
         //setting up the click listener.
-        saveButton.setOnClickListener {
+        binding.saveButton.setOnClickListener {
             backup = currentName //creating a backup
 
             //the following two lines hide the keyboard after clicking the button
@@ -28,8 +32,8 @@ class MainActivity : AppCompatActivity() {
             imm!!.hideSoftInputFromWindow(parent.windowToken, 0)
 
             //save the text entered in the current name field.
-            currentName = editText.text.toString()
-            lastEntered.text = currentName
+            currentName = binding.editText.text.toString()
+            binding.lastEntered.text = currentName
             //Now setup our snackbar and show it
 
             val snackbar = Snackbar
@@ -38,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                         //This code will ONLY be executed in case that
                         //the user has hit the UNDO button
                         currentName = backup //get backup
-                        lastEntered.text = currentName
+                        binding.lastEntered.text = currentName
                         val snackbar = Snackbar.make(parent, "Old name restored!", Snackbar.LENGTH_SHORT)
 
                         //Show the user we have restored the name - but here
